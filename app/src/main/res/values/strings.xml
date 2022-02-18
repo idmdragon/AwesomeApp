@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Awesome App</string>
+    <string name="title_domain">Module Domain</string>
+    <string name="title_data">Module Data</string>
+    <string name="title_feature">Module Feature</string>
 </resources>
