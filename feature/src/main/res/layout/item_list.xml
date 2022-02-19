@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/dimen_x8"
+    android:layout_marginHorizontal="@dimen/dimen_x16"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/ivPhoto"
+        android:layout_width="@dimen/dimen_x120"
+        android:layout_height="@dimen/dimen_x120"
+        android:contentDescription="@string/feature_cd_photo"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="centerCrop"
+        tools:src="@tools:sample/avatars"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvDesc"
+        android:layout_width="@dimen/dimen_x0"
+        android:layout_height="wrap_content"
+        style="@style/Heading1"
+        android:layout_marginStart="@dimen/dimen_x16"
+        app:layout_constraintTop_toTopOf="@id/ivPhoto"
+        app:layout_constraintStart_toEndOf="@id/ivPhoto"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDetail"
+        android:layout_width="@dimen/dimen_x0"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tvDesc"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/feature_text_detail"
+        android:backgroundTint="@color/black"
+        android:layout_marginTop="@dimen/dimen_x16"
+        app:layout_constraintTop_toBottomOf="@id/tvDesc"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

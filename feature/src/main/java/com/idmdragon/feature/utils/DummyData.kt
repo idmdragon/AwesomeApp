@@ -1,0 +1,41 @@
+package com.idmdragon.feature.utils
+
+import com.idmdragon.domain.model.Pexels
+
+object DummyData {
+    fun generateList():List<Pexels>{
+        val listItem = mutableListOf<Pexels>()
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        listItem.add(Pexels("Anggur","#FASSAD",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130"))
+        return listItem
+    }
+
+    fun generateItem(): Pexels = Pexels("Anggur","#FF03DAC5",1,"Jhonshon","www.google.com","https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg","https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&h=130")
+
+}

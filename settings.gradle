@@ -15,5 +15,5 @@ dependencyResolutionManagement {
 rootProject.name = "Awesome App"
 include ':app'
 include ':domain'
-include ':data'
 include ':feature'
+include ':data'

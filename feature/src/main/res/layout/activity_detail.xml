@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.detail.DetailActivity">
+
+
+    <ImageView
+        android:id="@+id/ivPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_x256"
+        android:contentDescription="@string/feature_cd_photo"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_x16"
+        android:background="@drawable/bg_arrow_back"
+        android:padding="@dimen/dimen_x8"
+        android:src="@drawable/ic_arrow_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/feature_cd_back" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvTitlePhotographerName"
+        style="@style/Title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_x16"
+        android:layout_marginTop="@dimen/text_size_x24"
+        android:text="@string/feature_title_photographer_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivPhoto" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvPhotographerName"
+        style="@style/Heading1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_x16"
+        android:layout_marginTop="@dimen/text_size_x16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitlePhotographerName"
+        tools:text="John Shon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvTitleUrl"
+        style="@style/Title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_x16"
+        android:layout_marginTop="@dimen/text_size_x24"
+        android:text="@string/feature_title_url"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPhotographerName" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvUrl"
+        style="@style/Link1"
+        android:layout_width="@dimen/dimen_x0"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_x16"
+        android:layout_marginTop="@dimen/text_size_x16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleUrl"
+        tools:text="www.asdasasdasdasdsadadasdsadasdasdsadasdasdasdasdd.com" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvTitleColor"
+        style="@style/Title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_x16"
+        android:layout_marginTop="@dimen/text_size_x24"
+        android:text="@string/feature_title_avarage_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvUrl" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivColor"
+        android:layout_width="@dimen/text_size_x24"
+        android:layout_height="@dimen/text_size_x24"
+        android:layout_marginTop="@dimen/dimen_x16"
+        app:layout_constraintStart_toStartOf="@id/tvTitleColor"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleColor" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="@dimen/dimen_x0"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_x16"
+        android:layout_marginBottom="@dimen/dimen_x28"
+        android:backgroundTint="@color/black"
+        android:text="@string/feature_title_visit_web"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
