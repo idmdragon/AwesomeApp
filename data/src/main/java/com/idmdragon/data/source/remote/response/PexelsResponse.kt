@@ -7,6 +7,6 @@ data class PexelsResponse(
     val liked: Boolean,
     val photographer: String,
     val photographer_id: Int,
-    val src: Src,
+    val src: ImageSize,
     val url: String,
 )

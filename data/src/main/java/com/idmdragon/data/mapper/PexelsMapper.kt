@@ -10,6 +10,6 @@ fun PexelsResponse.toModel(): Pexels =
         id = id,
         url = url,
         originalImage = src.original,
-        mediumImage = src.medium,
+        smallImage = src.medium,
         photographer = photographer
     )

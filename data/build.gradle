@@ -16,7 +16,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "API_KEY", "\"563492ad6f91700001000001f34ef9875094418d983b4af0b7e1c5d6\""
-        buildConfigField "String", "API_KEY", "\"563492ad6f91700001000001f34ef9875094418d983b4af0b7e1c5d6\""
+        buildConfigField "String", "BASE_URL", "\"https://api.pexels.com\""
 
     }
 

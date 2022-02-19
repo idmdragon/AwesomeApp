@@ -51,7 +51,7 @@ class ListItemAdapter (private val context: Context) : RecyclerView.Adapter<List
                 }
 
                 Glide.with(itemView.context)
-                    .load(item.mediumImage)
+                    .load(item.smallImage)
                     .transform(CenterCrop(), RoundedCorners(8))
                     .placeholder(ColorDrawable(Color.CYAN))
                     .apply(RequestOptions())

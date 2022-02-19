@@ -42,7 +42,7 @@ class GridAdapter (private val context: Context) : RecyclerView.Adapter<GridAdap
                             ExtrasNameConstant.EXTRAS_ID,item.id))
                 }
                 Glide.with(itemView.context)
-                    .load(item.mediumImage)
+                    .load(item.smallImage)
                     .into(ivPhoto)
 
             }

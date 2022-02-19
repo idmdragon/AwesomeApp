@@ -7,5 +7,5 @@ data class Pexels(
     val photographer: String,
     val url: String,
     val originalImage: String,
-    val mediumImage: String
+    val smallImage: String
 )
