@@ -2,6 +2,8 @@ package com.idmdragon.feature.ui.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -43,6 +45,7 @@ class GridAdapter (private val context: Context) : RecyclerView.Adapter<GridAdap
                 }
                 Glide.with(itemView.context)
                     .load(item.smallImage)
+                    .placeholder(ColorDrawable(Color.DKGRAY))
                     .into(ivPhoto)
 
             }

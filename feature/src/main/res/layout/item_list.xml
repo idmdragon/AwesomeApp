@@ -23,20 +23,23 @@
         android:layout_height="wrap_content"
         style="@style/Heading1"
         android:layout_marginStart="@dimen/dimen_x16"
+        android:maxLines="2"
+        android:ellipsize="end"
         app:layout_constraintTop_toTopOf="@id/ivPhoto"
         app:layout_constraintStart_toEndOf="@id/ivPhoto"
         app:layout_constraintEnd_toEndOf="parent"
         />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnDetail"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvPhotographerName"
         android:layout_width="@dimen/dimen_x0"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/tvDesc"
+        style="@style/Title1"
+        android:layout_marginTop="@dimen/dimen_x4"
+        android:layout_marginStart="@dimen/dimen_x16"
+        app:layout_constraintTop_toBottomOf="@id/tvDesc"
+        app:layout_constraintStart_toEndOf="@id/ivPhoto"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/feature_text_detail"
-        android:backgroundTint="@color/black"
-        android:layout_marginTop="@dimen/dimen_x16"
-        app:layout_constraintTop_toBottomOf="@id/tvDesc"/>
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

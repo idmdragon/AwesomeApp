@@ -42,10 +42,7 @@ class ListItemAdapter (private val context: Context) : RecyclerView.Adapter<List
         fun bind(item: Pexels) {
             with(binding) {
                 tvDesc.text = item.description
-
-                binding.btnDetail.setOnClickListener {
-                    context.startActivity(Intent(context,DetailActivity::class.java).putExtra(EXTRAS_ID,item.id))
-                }
+                binding.tvPhotographerName.text = item.photographer
                 itemView.setOnClickListener {
                     context.startActivity(Intent(context,DetailActivity::class.java).putExtra(EXTRAS_ID,item.id))
                 }
@@ -53,7 +50,7 @@ class ListItemAdapter (private val context: Context) : RecyclerView.Adapter<List
                 Glide.with(itemView.context)
                     .load(item.smallImage)
                     .transform(CenterCrop(), RoundedCorners(8))
-                    .placeholder(ColorDrawable(Color.CYAN))
+                    .placeholder(ColorDrawable(Color.DKGRAY))
                     .apply(RequestOptions())
                     .into(ivPhoto)
             }

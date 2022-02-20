@@ -3,8 +3,10 @@
     <string name="feature_cd_photo">Photo</string>
     <string name="feature_cd_logo">Logo</string>
     <string name="feature_cd_back">Back</string>
+    <string name="feature_cd_color">Color</string>
     <string name="feature_text_detail">Detail</string>
     <string name="feature_title_photographer_name">Photographer Name</string>
+    <string name="feature_title_photo_name">Picture Name</string>
     <string name="feature_title_url">Url Link</string>
     <string name="feature_title_avarage_color">Avarage Color</string>
     <string name="feature_title_visit_web">Visit Website Link</string>

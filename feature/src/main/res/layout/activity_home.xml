@@ -22,15 +22,6 @@
             android:padding="@dimen/dimen_x16"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <ImageView
-                android:layout_width="@dimen/dimen_x200"
-                android:layout_height="@dimen/dimen_x120"
-                android:layout_marginTop="@dimen/dimen_x40"
-                android:fitsSystemWindows="true"
-                android:src="@drawable/ic_logo"
-                app:layout_collapseMode="parallax"
-                android:contentDescription="@string/feature_cd_logo" />
-
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"

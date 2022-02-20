@@ -64,13 +64,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun setupBar() {
         with(binding.collapsingToolbar){
-            title = getString(appR.string.app_name)
-            setCollapsedTitleTextColor(
-                ContextCompat.getColor(this@HomeActivity, appR.color.black)
-            )
-            setExpandedTitleColor(
-                ContextCompat.getColor(this@HomeActivity, appR.color.white)
-            )
+            isTitleEnabled = false
         }
 
     }

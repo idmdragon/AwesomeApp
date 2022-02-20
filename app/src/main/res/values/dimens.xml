@@ -8,6 +8,7 @@
 
     <dimen name="dimen_x0">0dp</dimen>
     <dimen name="dimen_x1">1dp</dimen>
+    <dimen name="dimen_x4">4dp</dimen>
     <dimen name="dimen_x8">8dp</dimen>
     <dimen name="dimen_x16">16dp</dimen>
     <dimen name="dimen_x28">28dp</dimen>
