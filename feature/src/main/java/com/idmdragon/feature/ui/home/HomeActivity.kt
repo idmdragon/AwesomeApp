@@ -1,10 +1,14 @@
 package com.idmdragon.feature.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.distinctUntilChanged
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
@@ -16,6 +20,11 @@ import com.idmdragon.feature.databinding.ActivityHomeBinding
 import com.idmdragon.feature.di.featureModule
 import com.idmdragon.feature.ui.adapter.GridAdapter
 import com.idmdragon.feature.ui.adapter.ListItemAdapter
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.koin.core.context.loadKoinModules
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -26,83 +35,66 @@ class HomeActivity : AppCompatActivity() {
     private val listAdapter: ListItemAdapter = ListItemAdapter(this)
     private val gridAdapter: GridAdapter = GridAdapter(this)
     private val viewModel: HomeViewModel by viewModel()
-    private  var listPexels: List<Pexels>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         loadKoinModules(featureModule)
         setContentView(binding.root)
+        setupListAdapter()
         toolbar()
-        setupBar()
-        setupObserver()
     }
 
-    private fun setupObserver() {
-        viewModel.getAllPexels().observe(this) { resource ->
-            when (resource) {
-                is Resource.Success -> {
-                    resource.data?.let { listPexels = it }
-                    setupListAdapter()
-                }
-                is Resource.Loading -> {
+    private fun toolbar() {
+        binding.apply {
+            collapsingToolbar.isTitleEnabled = false
+            setSupportActionBar(toolbar)
+            toolbar.inflateMenu(R.menu.menu)
+            toolbar.elevation = 0F
+        }
+    }
 
-                }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
 
-                is Resource.Error -> {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menuGrid -> {
+                setupGridAdapter()
+            }
+            else -> setupListAdapter()
+        }
+        return true
+    }
 
-                    Snackbar.make(
-                        binding.root,
-                        resource.message.toString(),
-                        Snackbar.LENGTH_LONG
-                    ).show()
+    private fun setupListAdapter() {
+        viewModel.getAllPexels().observe(this) { listItem ->
+            lifecycleScope.launch {
+                listAdapter.submitData(listItem)
+                listAdapter.loadStateFlow.distinctUntilChanged()
+                withContext(Dispatchers.Main){
+                    binding.rvPexels.adapter = listAdapter
+                    binding.rvPexels.itemAnimator = null
+                    binding.rvPexels.layoutManager = LinearLayoutManager(this@HomeActivity)
                 }
             }
         }
     }
 
-
-    private fun setupBar() {
-        with(binding.collapsingToolbar){
-            isTitleEnabled = false
+    private fun setupGridAdapter() {
+        viewModel.getAllPexels().observe(this) { listItem ->
+            lifecycleScope.launch {
+                gridAdapter.submitData(listItem)
+                gridAdapter.loadStateFlow.distinctUntilChanged()
+                withContext(Dispatchers.Main){
+                    binding.rvPexels.itemAnimator = null
+                    binding.rvPexels.layoutManager = GridLayoutManager(this@HomeActivity, 2)
+                    binding.rvPexels.adapter = gridAdapter
+                }
+            }
         }
-
-    }
-
-    private fun toolbar() {
-        setSupportActionBar(findViewById(R.id.toolbar))
-        binding.toolbar.inflateMenu(R.menu.menu)
-        binding.toolbar.elevation = 0F
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu,menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-       when(item.itemId){
-           R.id.menuGrid -> {setupGridAdapter()}
-           else -> setupListAdapter()
-       }
-        return true
-    }
-
-
-    private fun setupListAdapter(){
-        binding.rvPexels.adapter = listAdapter
-        listPexels?.let { listAdapter.setItems(it) }
-        binding.rvPexels.layoutManager = LinearLayoutManager(
-            this,
-            LinearLayoutManager.VERTICAL, false
-        )
-    }
-
-    private fun setupGridAdapter(){
-        listPexels?.let { gridAdapter.setItems(it) }
-        binding.rvPexels.layoutManager = GridLayoutManager(this, 2)
-        binding.rvPexels.adapter = gridAdapter
-
     }
 
 }

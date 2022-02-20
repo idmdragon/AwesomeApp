@@ -1,6 +1,8 @@
 package com.idmdragon.data.source.remote
 
+import android.util.Log
 import com.idmdragon.data.source.remote.response.ApiResponse
+import com.idmdragon.data.source.remote.response.PagingDataResponse
 import com.idmdragon.data.source.remote.response.PexelsResponse
 import com.idmdragon.data.source.remote.service.PexelsService
 import kotlinx.coroutines.Dispatchers
@@ -10,15 +12,8 @@ import kotlinx.coroutines.flow.flowOn
 
 class RemoteDataSource (private val pexelsService: PexelsService) {
 
-    fun getAllPexels(): Flow<ApiResponse<List<PexelsResponse>>> =
-        flow {
-            try {
-                val response = pexelsService.getListItem()
-                emit(ApiResponse.Success(response.photos))
-            } catch (e: Exception) {
-                emit(ApiResponse.Error(e.message.toString()))
-            }
-        }.flowOn(Dispatchers.IO)
+    suspend fun getAllPexels(page: Int): PagingDataResponse<PexelsResponse> =
+        pexelsService.getListItem(page)
 
     fun getPexelsById(id: Int): Flow<ApiResponse<PexelsResponse>> =
         flow {

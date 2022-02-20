@@ -4,8 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
@@ -16,14 +19,15 @@ import com.idmdragon.feature.constant.ExtrasNameConstant.EXTRAS_ID
 import com.idmdragon.feature.databinding.ItemListBinding
 import com.idmdragon.feature.ui.detail.DetailActivity
 
-class ListItemAdapter (private val context: Context) : RecyclerView.Adapter<ListItemAdapter.ViewHolder>() {
+class ListItemAdapter (private val context: Context)  : PagingDataAdapter<Pexels, ListItemAdapter.ViewHolder>(
+    object : DiffUtil.ItemCallback<Pexels>() {
+        override fun areItemsTheSame(oldItem: Pexels, newItem: Pexels): Boolean =
+            oldItem.id == newItem.id
 
-    private val items = arrayListOf<Pexels>()
-
-    fun setItems(items: List<Pexels>) {
-        this.items.clear()
-        this.items.addAll(items)
+        override fun areContentsTheSame(oldItem: Pexels, newItem: Pexels): Boolean =
+            oldItem.id == newItem.id
     }
+)  {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListItemAdapter.ViewHolder {
         val itemBinding =
@@ -32,14 +36,13 @@ class ListItemAdapter (private val context: Context) : RecyclerView.Adapter<List
     }
 
     override fun onBindViewHolder(holder: ListItemAdapter.ViewHolder, position: Int) {
-        holder.bind(items[position])
+        getItem(position)?.let { holder.bind(it) }
     }
-
-    override fun getItemCount() = items.size
 
     inner class ViewHolder(private val binding: ItemListBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Pexels) {
+
             with(binding) {
                 tvDesc.text = item.description
                 binding.tvPhotographerName.text = item.photographer

@@ -33,9 +33,11 @@ val retrofitModule = module {
 
 }
 
+@ExperimentalCoroutinesApi
+@ObsoleteCoroutinesApi
+@DelicateCoroutinesApi
 val remoteSourceModule = module {
     single {
         RemoteDataSource(get())
     }
-
 }

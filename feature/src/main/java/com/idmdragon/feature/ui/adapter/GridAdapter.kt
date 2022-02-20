@@ -6,6 +6,8 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.idmdragon.domain.model.Pexels
@@ -13,14 +15,15 @@ import com.idmdragon.feature.constant.ExtrasNameConstant
 import com.idmdragon.feature.databinding.ItemGridBinding
 import com.idmdragon.feature.ui.detail.DetailActivity
 
-class GridAdapter (private val context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolder>() {
+class GridAdapter (private val context: Context) : PagingDataAdapter<Pexels,GridAdapter.ViewHolder>(
+    object : DiffUtil.ItemCallback<Pexels>() {
+        override fun areItemsTheSame(oldItem: Pexels, newItem: Pexels): Boolean =
+            oldItem.id == newItem.id
 
-    private val items = arrayListOf<Pexels>()
-
-    fun setItems(items: List<Pexels>) {
-        this.items.clear()
-        this.items.addAll(items)
+        override fun areContentsTheSame(oldItem: Pexels, newItem: Pexels): Boolean =
+            oldItem.id == newItem.id
     }
+)  {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridAdapter.ViewHolder {
         val itemBinding =
@@ -29,10 +32,8 @@ class GridAdapter (private val context: Context) : RecyclerView.Adapter<GridAdap
     }
 
     override fun onBindViewHolder(holder: GridAdapter.ViewHolder, position: Int) {
-        holder.bind(items[position])
+        getItem(position)?.let { holder.bind(item = it) }
     }
-
-    override fun getItemCount() = items.size
 
     inner class ViewHolder(private val binding: ItemGridBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -47,7 +48,6 @@ class GridAdapter (private val context: Context) : RecyclerView.Adapter<GridAdap
                     .load(item.smallImage)
                     .placeholder(ColorDrawable(Color.DKGRAY))
                     .into(ivPhoto)
-
             }
         }
     }

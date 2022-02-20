@@ -10,7 +10,7 @@
         <entry key="feature/src/main/res/drawable/bg_arrow_back.xml" value="0.1785" />
         <entry key="feature/src/main/res/drawable/ic_arrow_white.xml" value="0.1785" />
         <entry key="feature/src/main/res/layout/activity_detail.xml" value="0.25" />
-        <entry key="feature/src/main/res/layout/activity_home.xml" value="0.165" />
+        <entry key="feature/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="feature/src/main/res/layout/item_grid.xml" value="0.1" />
         <entry key="feature/src/main/res/layout/item_list.xml" value="0.25" />
         <entry key="feature/src/main/res/menu/menu.xml" value="0.19583333333333333" />

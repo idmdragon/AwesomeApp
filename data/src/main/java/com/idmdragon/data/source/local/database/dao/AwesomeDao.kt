@@ -1,5 +1,6 @@
 package com.idmdragon.data.source.local.database.dao
 
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -15,9 +16,9 @@ interface AwesomeDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPexels(pexels: PexelsEntity)
 
-    @Query("SELECT * FROM PexelsEntity")
-    fun selectAllPexels(): Flow<List<PexelsEntity>>
+    @Query("SELECT * FROM PexelsEntity ORDER BY id ASC")
+    fun selectAllPexels(): PagingSource<Int, PexelsEntity>
 
     @Query("SELECT * FROM PexelsEntity WHERE id = :id")
-    fun selectPexelsById(id:Int): Flow<PexelsEntity>
+    fun selectPexelsById(id: Int): Flow<PexelsEntity>
 }
