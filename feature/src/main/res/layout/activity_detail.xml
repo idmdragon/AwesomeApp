@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_x16"
-        android:layout_marginTop="@dimen/text_size_x24"
+        android:layout_marginTop="@dimen/dimen_x40"
         android:text="@string/feature_title_photo_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivPhoto" />
