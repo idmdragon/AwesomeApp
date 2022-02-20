@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.detail.DetailActivity">
-
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/ivPhoto"
@@ -13,8 +10,7 @@
         android:layout_height="@dimen/dimen_x256"
         android:contentDescription="@string/feature_cd_photo"
         android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/btnBack"
@@ -22,11 +18,35 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_x16"
         android:background="@drawable/bg_arrow_back"
+        android:contentDescription="@string/feature_cd_back"
         android:padding="@dimen/dimen_x8"
         android:src="@drawable/ic_arrow_white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/feature_cd_back" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvTitlePhotosName"
+        style="@style/Title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_x16"
+        android:layout_marginTop="@dimen/text_size_x24"
+        android:text="@string/feature_title_photo_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivPhoto" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvPhotoName"
+        style="@style/Heading1"
+        android:layout_width="@dimen/dimen_x0"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/dimen_x16"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginStart="@dimen/dimen_x16"
+        android:layout_marginTop="@dimen/dimen_x8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitlePhotosName" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvTitlePhotographerName"
@@ -37,7 +57,7 @@
         android:layout_marginTop="@dimen/text_size_x24"
         android:text="@string/feature_title_photographer_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivPhoto" />
+        app:layout_constraintTop_toBottomOf="@id/tvPhotoName" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvPhotographerName"
@@ -45,10 +65,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_x16"
-        android:layout_marginTop="@dimen/text_size_x16"
+        android:layout_marginTop="@dimen/dimen_x8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitlePhotographerName"
-        tools:text="John Shon" />
+        app:layout_constraintTop_toBottomOf="@id/tvTitlePhotographerName" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvTitleUrl"
@@ -67,12 +86,11 @@
         android:layout_width="@dimen/dimen_x0"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimen_x16"
-        android:layout_marginTop="@dimen/text_size_x16"
+        android:layout_marginTop="@dimen/dimen_x8"
         android:maxLines="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitleUrl"
-        tools:text="www.asdasasdasdasdsadadasdsadasdasdsadasdasdasdasdd.com" />
+        app:layout_constraintTop_toBottomOf="@id/tvTitleUrl" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvTitleColor"
@@ -85,22 +103,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvUrl" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/ivColor"
         android:layout_width="@dimen/text_size_x24"
         android:layout_height="@dimen/text_size_x24"
-        android:layout_marginTop="@dimen/dimen_x16"
+        android:layout_marginTop="@dimen/dimen_x8"
         app:layout_constraintStart_toStartOf="@id/tvTitleColor"
-        app:layout_constraintTop_toBottomOf="@id/tvTitleColor" />
+        app:layout_constraintTop_toBottomOf="@id/tvTitleColor"
+        android:contentDescription="@string/feature_cd_color" />
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="@dimen/dimen_x0"
+    <TextView
+        android:id="@+id/tvColor"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dimen_x16"
-        android:layout_marginBottom="@dimen/dimen_x28"
-        android:backgroundTint="@color/black"
-        android:text="@string/feature_title_visit_web"
+        app:layout_constraintTop_toTopOf="@id/ivColor"
+        app:layout_constraintBottom_toBottomOf="@id/ivColor"
+        app:layout_constraintStart_toEndOf="@id/ivColor"
+        android:layout_marginStart="@dimen/dimen_x16"
+        android:textSize="@dimen/text_size_x16"
+        android:textStyle="italic"
+        />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:visibility="gone"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
