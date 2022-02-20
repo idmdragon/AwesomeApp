@@ -12,4 +12,5 @@
     <string name="feature_title_visit_web">Visit Website Link</string>
     <string name="feature_title_list">List</string>
     <string name="feature_title_grid">Grid</string>
+    <string name="feature_msg_no_internet">Koneksimu kamu tidak terdeteksi, mohon untuk periksa koneksimu ya..</string>
 </resources>

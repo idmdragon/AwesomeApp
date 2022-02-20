@@ -1,32 +1,25 @@
 package com.idmdragon.feature.ui.home
 
+import android.net.ConnectivityManager
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.lifecycle.distinctUntilChanged
 import androidx.lifecycle.lifecycleScope
-import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
-import com.idmdragon.domain.model.Pexels
-import com.idmdragon.domain.utils.Resource
 import com.idmdragon.feature.R
-import com.idmdragon.awesomeapp.R as appR
 import com.idmdragon.feature.databinding.ActivityHomeBinding
 import com.idmdragon.feature.di.featureModule
 import com.idmdragon.feature.ui.adapter.GridAdapter
 import com.idmdragon.feature.ui.adapter.ListItemAdapter
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.koin.core.context.loadKoinModules
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
 
 
 class HomeActivity : AppCompatActivity() {
@@ -42,6 +35,7 @@ class HomeActivity : AppCompatActivity() {
         loadKoinModules(featureModule)
         setContentView(binding.root)
         setupListAdapter()
+        isNoInternetConnection()
         toolbar()
     }
 
@@ -95,6 +89,24 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun isNoInternetConnection(){
+        if (!isNetworkConnected()){
+            Snackbar.make(
+                binding.root,
+                getString(R.string.feature_msg_no_internet),
+                Snackbar.LENGTH_LONG
+            ).show()
+        }else{
+            setupListAdapter()
+        }
+    }
+
+    @Suppress("DEPRECATION")
+    private fun isNetworkConnected(): Boolean {
+        val cm = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+        return cm.activeNetworkInfo != null && cm.activeNetworkInfo!!.isConnected
     }
 
 }

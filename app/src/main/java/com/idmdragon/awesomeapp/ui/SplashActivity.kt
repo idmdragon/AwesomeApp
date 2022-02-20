@@ -19,6 +19,7 @@ class SplashActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.Main).launch {
             delay(1000)
             startActivity(Intent(this@SplashActivity, Class.forName(FEATURE_HOME_PAGE)))
+            finish()
         }
     }
 }
