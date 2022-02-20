@@ -21,7 +21,6 @@ import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
-
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
