@@ -1,6 +1,8 @@
 package com.idmdragon.data.repository
 
 import com.idmdragon.data.mapper.toEntities
+import com.idmdragon.data.mapper.toEntity
+import com.idmdragon.data.mapper.toFlowModel
 import com.idmdragon.data.mapper.toFlowModels
 import com.idmdragon.data.source.NetworkBoundResource
 import com.idmdragon.data.source.local.LocalDataSource
@@ -29,8 +31,23 @@ class PexelsRepositoryImpl(
                 remote.getAllPexels()
 
             override suspend fun saveCallResult(data: List<PexelsResponse>) =
-                local.insertPexels(data.toEntities())
+                local.insertListPexels(data.toEntities())
 
         }.asFlow()
 
+    override fun getPexelsById(id: Int): Flow<Resource<Pexels>> =
+        object : NetworkBoundResource<Pexels, PexelsResponse>() {
+            override fun loadFromDB(): Flow<Pexels> =
+                local.getPexelsById(id).toFlowModel()
+
+            override fun shouldFetch(data: Pexels?): Boolean =
+                data == null
+
+            override suspend fun createCall(): Flow<ApiResponse<PexelsResponse>> =
+                remote.getPexelsById(id)
+
+            override suspend fun saveCallResult(data: PexelsResponse) =
+                local.insertPexels(data.toEntity())
+
+        }.asFlow()
 }

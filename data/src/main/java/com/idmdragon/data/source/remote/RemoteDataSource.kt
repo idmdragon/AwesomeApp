@@ -20,4 +20,13 @@ class RemoteDataSource (private val pexelsService: PexelsService) {
             }
         }.flowOn(Dispatchers.IO)
 
+    fun getPexelsById(id: Int): Flow<ApiResponse<PexelsResponse>> =
+        flow {
+            try {
+                val response = pexelsService.getPexelsById(id.toString())
+                emit(ApiResponse.Success(response))
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.message.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
 }

@@ -6,5 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface PexelsUsecase {
     fun getListPexels(): Flow<Resource<List<Pexels>>>
+    fun getPexelsById(id: Int): Flow<Resource<Pexels>>
 
 }

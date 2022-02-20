@@ -9,5 +9,4 @@ val useCaseModule = module {
     factory<PexelsUsecase> {
         PexelsUsecaseImpl(get())
     }
-
 }

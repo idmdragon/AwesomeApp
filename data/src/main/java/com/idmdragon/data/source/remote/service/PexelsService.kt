@@ -11,4 +11,8 @@ interface PexelsService {
 
     @GET("/v1/curated")
     suspend fun getListItem(): GeneralResponse
+
+    @GET("/v1/photos/{id}")
+    suspend fun getPexelsById(@Path("id") id: String): PexelsResponse
+
 }

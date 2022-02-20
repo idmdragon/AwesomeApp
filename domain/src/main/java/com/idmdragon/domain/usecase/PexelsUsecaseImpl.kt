@@ -9,4 +9,6 @@ class PexelsUsecaseImpl(private val pexelsRepository: PexelsRepository): PexelsU
     override fun getListPexels(): Flow<Resource<List<Pexels>>> =
         pexelsRepository.getListPexels()
 
+    override fun getPexelsById(id: Int): Flow<Resource<Pexels>> =
+        pexelsRepository.getPexelsById(id)
 }

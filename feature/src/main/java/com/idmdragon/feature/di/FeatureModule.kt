@@ -2,6 +2,7 @@ package com.idmdragon.feature.di
 
 import com.idmdragon.domain.usecase.PexelsUsecase
 import com.idmdragon.domain.usecase.PexelsUsecaseImpl
+import com.idmdragon.feature.ui.detail.DetailViewModel
 import com.idmdragon.feature.ui.home.HomeViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -12,5 +13,8 @@ val featureModule = module {
     }
     viewModel {
         HomeViewModel(get())
+    }
+    viewModel {
+        DetailViewModel(get())
     }
 }

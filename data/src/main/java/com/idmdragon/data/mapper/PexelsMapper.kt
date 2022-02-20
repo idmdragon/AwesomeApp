@@ -34,8 +34,12 @@ fun List<PexelsResponse>.toEntities(): List<PexelsEntity> =
         it.toEntity()
     }
 
-
 fun List<PexelsEntity>.toModels(): List<Pexels> =
+    this.map {
+        it.toModel()
+    }
+
+fun Flow<PexelsEntity>.toFlowModel(): Flow<Pexels> =
     this.map {
         it.toModel()
     }

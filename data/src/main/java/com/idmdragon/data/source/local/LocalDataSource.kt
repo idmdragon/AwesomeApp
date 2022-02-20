@@ -8,7 +8,12 @@ class LocalDataSource(private val awesomeDao: AwesomeDao) {
     fun getAllPexels(): Flow<List<PexelsEntity>> =
         awesomeDao.selectAllPexels()
 
-    suspend fun insertPexels(listPexels: List<PexelsEntity>) =
-        awesomeDao.insertPexels(listPexels)
+    suspend fun insertListPexels(listPexels: List<PexelsEntity>) =
+        awesomeDao.insertListPexels(listPexels)
 
+    suspend fun insertPexels(pexels: PexelsEntity) =
+        awesomeDao.insertPexels(pexels)
+
+    fun getPexelsById(id: Int): Flow<PexelsEntity> =
+        awesomeDao.selectPexelsById(id)
 }
